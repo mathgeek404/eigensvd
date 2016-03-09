@@ -22,12 +22,13 @@ def main():
     matrix = numArr[0]
     for i in range(1,len(numArr)-1):
         matrix = numpy.vstack((matrix, numArr[i]))
-    matrix = numpy.transpose(matrix)
+    #matrix = numpy.transpose(matrix)
 
     #Remove mean
     mean = matrix.mean(axis=1)
     matrix = matrix - mean[:, numpy.newaxis]
     covar = numpy.cov(matrix)
+
 
 
 if __name__ == '__main__':
