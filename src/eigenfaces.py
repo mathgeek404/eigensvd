@@ -1,16 +1,17 @@
 import numpy as np
 from PIL import Image
 import os, re
-
+# Import matplotlib
 
 def pca(X) :
-	
 	
 	[n , d] = X.shape
 
 	#Remove mean
 	mu = X.mean(axis =0)
 	X = X-mu
+	
+	u,s,v = svd(matrix)
 	
 	#Cov matrix
 	C = np.cov(X)
@@ -35,12 +36,14 @@ def main():
             arr = np.array(img, 'uint8')
             numArr.append(arr)
             imgsize  = img.size
-         
+        
     # Joing into matrix
-    matrix = numArr[0]
-    for i in range(1,len(numArr)-1):
+    matrix = numArr[0].reshape(numArr[0].size)
+    for i in range(1,len(numArr)):
         matrix = np.vstack((matrix, numArr[i]))
     #matrix = numpy.transpose(matrix)
+
+	matrix = np.array(numArr).reshape(40095, 320)
 
     [eigval, eigvec, mu] = pca(matrix)
     
