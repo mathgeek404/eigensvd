@@ -4,9 +4,6 @@
 import numpy as np
 from PIL import Image
 import os, re
-
-# Import matplotlib
-
 from scipy.linalg import svd
 
 def eigendec(X) :
