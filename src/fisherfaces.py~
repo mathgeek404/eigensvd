@@ -74,7 +74,7 @@ eigenvectors = np.array(eigenvectors[0:,0:c].real , dtype =np.float32, copy = Tr
 
 finDec = np.dot(eigenvectors.T, W_pca)
 
-print(np.dot(finDec,(matrix.T-mu).T))
+print(np.dot(finDec,(X.T-mu).T))
 
 print(finDec.shape)
 
