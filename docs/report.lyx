@@ -1,0 +1,190 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subsection*
+Eigenfaces Methodology
+\end_layout
+
+\begin_layout Standard
+Here, we assume X is the d by n data matrix of sample points, where d is
+ the number of features/variables and n is the number of samples.
+\end_layout
+
+\begin_layout Standard
+1.
+ Compute the mean of the data points: 
+\begin_inset Formula $\mu=\frac{1}{n}\sum_{i=1}^{n}x_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Center the matrix X by subtracting mu from each column
+\end_layout
+
+\begin_layout Standard
+3.
+ Take the SVD of X
+\end_layout
+
+\begin_layout Standard
+4.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Eigenfaces and relationship to SVD
+\end_layout
+
+\begin_layout Standard
+1.
+ 
+\end_layout
+
+\begin_layout Standard
+2.
+ Compute the covariance matrix 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $X=USV^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notice that 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $X^{T}X=(USV^{T})^{T}USV^{T}=VS^{T}U^{T}USV^{T}=VS^{T}SV^{T}=VSSV^{T}=VS^{2}V^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+LDA methodology
+\end_layout
+
+\begin_layout Standard
+Suppose we are given a set of samples 
+\begin_inset Formula $S=\{(x_{1},c_{1}),...,(x_{n},c_{n})\}$
+\end_inset
+
+, with each 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ with some classification 
+\begin_inset Formula $c_{i}\in\{1,...,c\}$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula $ind(S,r):=\{i|i\in\{1,..,n\},(x_{i},r)\in S\}$
+\end_inset
+
+ (that is, the set of indices for samples with the given classification).
+\end_layout
+
+\begin_layout Standard
+Calculate 
+\begin_inset Formula $S_{B}=\sum_{i=1}^{c}N_{i}(\mu_{i}-\mu)(\mu_{i}-\mu)^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Calculate 
+\begin_inset Formula $S_{B}=\sum_{i=1}^{c}\sum_{i\in ind(S,i)}N_{i}(\mu_{i}-\mu)(\mu_{i}-\mu)^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $W_{opt}=argmax_{W}\frac{|W^{T}S_{B}W|}{|W^{T}S_{W}W|}$
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
