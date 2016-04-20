@@ -7,7 +7,7 @@ from PIL import Image
 import os, re
 from scipy.linalg import svd
 
-class fisherRecognizer(object):
+class FFRec(object):
 
 	def __init__(self, datadir ="data/yalefaces/"):
 		imgsize=(0,0)
@@ -73,6 +73,9 @@ class fisherRecognizer(object):
 		self.numimg = numimg
 		self.imgsize = imgsize
 
+		self.proj = [self.project(matrix[:,i]) for i in range(0,numimg)]
+		self.projClass = classVec
+
 		#Eigenface construction
 		#for i in range(0,k):
 		#    img = Image.fromarray((u[:,i]*s[i]).reshape(imgsize[1],imgsize[0]))
@@ -81,8 +84,20 @@ class fisherRecognizer(object):
 	def project(self, X):
 		return np.dot(self.Wlda, X-self.mu)
 
-	def reconstruct(self, Y):
-		return np.dot(self.Wlda.T,Y) + self.mu
+
+	def predict(self , X):
+		minDist = np.finfo('float').max
+		minClass = -1
+		Q = self.project(X)
+		for i in range(0,len(self.proj)):
+			dist = np.linalg.norm(self.proj[i] - Q)
+			if dist < minDist :
+				minDist = dist
+				minClass = self.projClass[i]
+		return minClass
+
+	def reconstruct(self, X):
+		return np.dot(self.Wlda.T,X) + self.mu
 
 	def reconstructImages(self):
 		#Original image reconstruction
