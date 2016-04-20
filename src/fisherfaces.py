@@ -52,7 +52,7 @@ for clas in labels:
 	N = len(indices)
 	mean_i = np.mean(P[:,indices],axis=1)
 	S_b = S_b + N*np.dot((mean_i-mean),(mean_i-mean).T)
-	
+
 
 S_w = np.zeros((P.shape[0],P.shape[0]))
 for clas in labels:
@@ -71,14 +71,27 @@ eigenvectors = eigenvectors[:,idx]
 eigenvalues = np.array(eigenvalues[0:c].real , dtype=np.float32, copy=True )
 eigenvectors = np.array(eigenvectors[0:,0:c].real , dtype =np.float32, copy = True)
 
-
-finDec = np.dot(eigenvectors.T, W_pca)
-
-print(np.dot(finDec,(matrix.T-mu).T))
-
-print(finDec.shape)
-
-#for i in range(0,c):
-#    img = Image.fromarray(eigenvectors[:,i].reshape(imgsize[1],imgsize[0]))
+Wlda = np.dot(eigenvectors.T, W_pca)
+print(Wlda.shape)
+#Eigenface construction
+#for i in range(0,k):
+#    img = Image.fromarray((u[:,i]*s[i]).reshape(imgsize[1],imgsize[0]))
 #    img.save('result/eigenface%.4i.gif'%i)
-#
+
+def project(W, X, mu = None ):
+	if mu is None :
+		return np.dot(W, X)
+	return np.dot(W, X-mu)
+
+def reconstruct(W, Y ,mu = None ) :
+	if mu is None:
+		return np.dot(W.T,Y)
+	return np.dot(W.T,Y) + mu
+
+#Original image reconstruction
+for kk in range(0,numimg):
+	iv = matrix[:,kk]
+	iv = project(Wlda, iv, mu)
+	iv = reconstruct(Wlda, iv, mu)
+	img = Image.fromarray(iv.T.reshape(imgsize[1],imgsize[0]))
+	img.save('result/lda_recon%.4i.gif'%kk)
