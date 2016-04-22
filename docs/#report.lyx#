@@ -73,8 +73,20 @@
 
 \begin_body
 
+\begin_layout Standard
+Notes: Go over basic things
+\end_layout
+
 \begin_layout Section*
-PCA For EigenFaces
+Motivation
+\end_layout
+
+\begin_layout Standard
+Image recognition systems surpassing humans
+\end_layout
+
+\begin_layout Section*
+The Problem 
 \end_layout
 
 \begin_layout Standard
@@ -93,20 +105,18 @@ However, only a subset of points in this NM dimensional space correspond
 \end_layout
 
 \begin_layout Standard
+Classification of these images which we would like to predict (e.g.
+ person, object)
+\end_layout
+
+\begin_layout Section*
+PCA For EigenFaces
+\end_layout
+
+\begin_layout Standard
 Goal: Find vectors which can best account for the variation of these images
  (e.g.
  faces)
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $(X-\mu)=USV^{T}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Singular values in S corresponds
 \end_layout
 
 \begin_layout Subsection*
@@ -122,6 +132,58 @@ Covariance Matrix
 
 \begin_layout Standard
 \begin_inset Formula $cov(X_{i},X_{j})=E[(X_{i}-\mu_{i})(X_{i}-\mu_{j})]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $X=[X_{i}-mu]_{i},i\in1,...,n$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $X=WDW^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hat{X}=USV^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $XX^{T}=USV^{T}(USV^{T})^{T}=USV^{T}VS^{T}U^{T}=USIS^{T}U^{T}=USSU^{T}=US^{2}U^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So then 
+\begin_inset Formula $U=W$
+\end_inset
+
+ and 
+\begin_inset Formula $S^{2}=D$
+\end_inset
+
+.
+ Thus the SVD manages to calculate the eigenvectors (and eigenvalues) without
+ having to calculate the covariance matrix itself.
+ 
+\end_layout
+
+\begin_layout Standard
+Hence, we can use the k largest singular values to indicate the k principle
+ components from 
+\begin_inset Formula $U$
 \end_inset
 
 
@@ -147,7 +209,11 @@ Here, we assume X is the d by n data matrix of sample points, where d is
 
 \begin_layout Standard
 2.
- Center the matrix X by subtracting mu from each column
+ Center the matrix X by subtracting mu from each column: 
+\begin_inset Formula $X=[X_{i}-mu]_{i},i\in1,...,n$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -161,35 +227,24 @@ Here, we assume X is the d by n data matrix of sample points, where d is
 \end_layout
 
 \begin_layout Subsection*
-Eigenfaces and relationship to SVD
+Projector and Recognition
+\end_layout
+
+\begin_layout Subsection*
+Limitations? Issues
+\end_layout
+
+\begin_layout Subsection*
+Fisherfaces
 \end_layout
 
 \begin_layout Standard
-1.
- 
+An attempt to integrate classification data into the process
 \end_layout
 
 \begin_layout Standard
-2.
- Compute the covariance matrix 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $X=USV^{T}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Notice that 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $X^{T}X=(USV^{T})^{T}USV^{T}=VS^{T}U^{T}USV^{T}=VS^{T}SV^{T}=VSSV^{T}=VS^{2}V^{T}$
-\end_inset
-
-
+Goal: Find a subspace that groups common groups of images together while
+ separating different groups as much as possible.
 \end_layout
 
 \begin_layout Subsection*
@@ -234,10 +289,27 @@ Calculate
 \end_layout
 
 \begin_layout Standard
+Want to find the projection matrix that maximizes:
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula $W_{opt}=argmax_{W}\frac{|W^{T}S_{B}W|}{|W^{T}S_{W}W|}$
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Project sample image vector 
+\begin_inset Formula $x$
+\end_inset
+
+ onto this subspace via 
+\begin_inset Formula $\hat{y}=W^{T}(x-\mu)$
+\end_inset
+
+.
+ 
 \end_layout
 
 \end_body

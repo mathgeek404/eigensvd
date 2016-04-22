@@ -1,0 +1,3625 @@
+#LyX file created by tex2lyx 2.1
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass beamer
+\begin_preamble
+\usepackage{amsthm}\usepackage{tikz}\usepackage{enumerate}\usepackage{listings}\usepackage{url}\usepackage{multimedia}\usepackage{epsfig}\usepackage{graphics}%,upmath}
+\usepackage[sfdefault=cmbr]{isomath}
+\usepackage{colortbl}\usepackage{booktabs}\definecolor{Gray}{gray}{0.9}
+\newcommand{\tcr}{\textcolor{red}}
+\newcommand{\tcb}{\textcolor{blue}}
+\DeclareMathOperator{\arccot}{arccot}
+\urlstyle{same}
+\setbeamersize{text margin left=10mm, text margin right=10mm}
+%\newcommand{\newblock}{}
+
+\title{Reflections on Lorentz\\or\\Some new integral equations for surface tractions in Stokes flow}
+\author{William Mitchell \& Saverio Spagnolie}
+\institute{Mathematics\\ University of Wisconsin - Madison}
+\date{APS-DFD, November 2015}
+
+\def\t{\tensorsym}
+\newcommand{\bm}{\boldsymbol}
+\newcommand{\nv}{^{-1}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\mc}[1]{\ensuremath{\mathcal{#1}}}
+\newcommand{\ra}{\rightarrow}
+
+
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Frame
+
+\begin_inset VSpace -0.3in
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+titlepage
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace -0.45in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\align center
+
+\begin_inset Graphics 
+	filename uwcrest.pdf
+	width 40line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Note Note
+status closed
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameTitle
+Surface tractions
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+Problem: determine surface tractions on boundaries in Stokes flow. 
+\end_layout
+
+\begin_layout Frame
+\align center
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "50line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\begin_inset Graphics 
+	filename Spirals.png
+	width 100line%
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+qquad 
+\backslash
+qquad
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{minipage}{0.15
+\backslash
+linewidth}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+includegraphics[width = 
+\backslash
+linewidth]{Blood.jpg}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{minipage}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+Options: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\begin_inset Formula $\bm \sigma = \bm I p + \mu (\bm\nabla\bm u + \bm \nabla \bm u ^T)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Traction integral equations 
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\size footnotesize
+Shelley & Keaveny 2011, 
+\emph on
+Applying a second-kind boundary integral equation for surface tractions in Stokes flow
+\emph default
+
+\size default
+ 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Note Note
+status closed
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameTitle
+Integral equations for surface tractions: 
+\begin_inset Flex Flex:Only
+status collapsed
+
+\begin_layout Standard
+<
+\end_layout
+
+\end_inset
+
+2>
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+new cases
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+quiescent
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+free
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename RCsquare0.pdf
+	width 100line%
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \quad{}
+
+\end_inset
+
+
+\begin_inset Flex Flex:Only
+status collapsed
+
+\begin_layout Standard
+<
+\end_layout
+
+\end_inset
+
+2>
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+wall
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename RCsquare2.pdf
+	width 100line%
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset space \hspace{}
+\length 0.26in
+\end_inset
+
+shear
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\begin_inset Graphics 
+	filename RCsquare1.pdf
+	width 100line%
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \quad{}
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\begin_inset Graphics 
+	filename RCsquare3.pdf
+	width 100line%
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\begin_inset Flex Flex:Only
+status collapsed
+
+\begin_layout Standard
+<
+\end_layout
+
+\end_inset
+
+1>
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "40line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ Shelley & Keaveny 2011
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ Karrila & Kim 1989
+\begin_inset Newline newline
+\end_inset
+
+ Liron & Barta 1992
+\begin_inset Newline newline
+\end_inset
+
+ Kim & Power 1993
+\begin_inset Newline newline
+\end_inset
+
+ Ingber & Mondy 1993
+\begin_inset Newline newline
+\end_inset
+
+ Ladyzhenskaya 1963 
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \qquad{}
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "50line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ Goal: 
+\end_layout
+
+\begin_layout Itemize
+simple 
+\end_layout
+
+\begin_layout Itemize
+well-conditioned 
+\end_layout
+
+\begin_layout Itemize
+general 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{frame}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+frametitle{Extension to background flows: setup} 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Define:
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{itemize}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+item $D$, particle surface
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+item $B$, large bounding sphere
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+item $
+\backslash
+bm u^
+\backslash
+infty$, background flow
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+item $
+\backslash
+bm u,f$: velocity, traction from rigid motion of $D$
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+item $
+\backslash
+bm U, 
+\backslash
+bm F$ defined through arbitrary $
+\backslash
+bm 
+\backslash
+psi$ on $D$, 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+[
+\backslash
+bm U(
+\backslash
+bm x) = 
+\backslash
+int_D 
+\backslash
+bm
+\backslash
+psi(
+\backslash
+bm y)
+\backslash
+cdot T(
+\backslash
+bm x,
+\backslash
+bm y)
+\backslash
+cdot 
+\backslash
+bm n(
+\backslash
+bm y)dS_{
+\backslash
+bm y} 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+quad + 
+\backslash
+int_D C(
+\backslash
+bm x,
+\backslash
+bm y)
+\backslash
+cdot
+\backslash
+bm
+\backslash
+psi(
+\backslash
+bm y)dS_{
+\backslash
+bm y} 
+\backslash
+]  
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+end{itemize}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Lorentz Reciprocal theorem gives 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameTitle
+Accounting for a background flow
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+hspace{-0.3in}
+\backslash
+fbox{
+\backslash
+begin{minipage}{0.47
+\backslash
+linewidth}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Flow 1: $(
+\backslash
+bm u, 
+\backslash
+sigma)$
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% rigid particle, background flow
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% $
+\backslash
+bm u = 
+\backslash
+bm U + 
+\backslash
+bm
+\backslash
+Omega
+\backslash
+times
+\backslash
+bm x$ on $D$
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% $|
+\backslash
+bm u - 
+\backslash
+bm u^
+\backslash
+infty| = 
+\backslash
+mathcal{O}(1/r)$
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{minipage}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% }
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+fbox{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{minipage}{0.5
+\backslash
+linewidth}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% Flow 2: $(
+\backslash
+bm u', 
+\backslash
+sigma')$
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% arbitrary $
+\backslash
+bm 
+\backslash
+psi$ on $D$
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% $
+\backslash
+bm u'(
+\backslash
+bm x) = 
+\backslash
+int_D 
+\backslash
+bm
+\backslash
+psi(
+\backslash
+bm y)
+\backslash
+cdot T(
+\backslash
+bm x,
+\backslash
+bm y)
+\backslash
+cdot 
+\backslash
+bm n(
+\backslash
+bm y)dS_{
+\backslash
+bm y} $
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% $
+\backslash
+quad + 
+\backslash
+int_D C(
+\backslash
+bm x,
+\backslash
+bm y)
+\backslash
+cdot
+\backslash
+bm
+\backslash
+psi(
+\backslash
+bm y)dS_{
+\backslash
+bm y} $
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{minipage}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% }
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\begin_inset Formula $(\bm u,\bm f)$
+\end_inset
+
+ desired flow, decaying to 
+\begin_inset Formula $\bm u^\infty$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\begin_inset Formula $(\bm U,\bm F)$
+\end_inset
+
+ an arbitrary flow via 
+\begin_inset Formula $\bm \psi$
+\end_inset
+
+ on 
+\begin_inset Formula $D$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+\align center
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ Lorentz Reciprocal Theorem
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Formula $\Downarrow$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Formula $\langle \bm u,\bm F \rangle_D +\langle \bm u,\bm F \rangle_B = \langle \bm U,\bm f \rangle_D +\langle \bm U,\bm f \rangle_B$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\begin_inset Graphics 
+	filename LRTBD.pdf
+	width 100line%
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "65line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\end_layout
+
+\begin_layout Itemize
+write all integrals as 
+\begin_inset Formula $\langle\bm \psi, \cdot\rangle$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+from 
+\begin_inset Formula $\langle\bm \psi, \mathcal{F}\rangle \equiv 0$
+\end_inset
+
+ deduce 
+\begin_inset Formula $\mathcal{F} = 0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+S&K (2011) used 
+\begin_inset Formula $\bm u^\infty = \bm 0$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Note Note
+status closed
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\align center
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\begin_inset Graphics 
+	filename Circ.pdf
+	width 100line%
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "20line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\begin_inset Formula $\not \to 0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\begin_inset VSpace 1in
+\end_inset
+
+ but you can calculate it 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Note Note
+status closed
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameTitle
+Background flows touch the right-hand side only
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\begin_inset Flex Flex:Only
+status collapsed
+
+\begin_layout Standard
+<
+\end_layout
+
+\end_inset
+
+1>
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+For quiet fluid, 
+\begin_inset Formula $\bm u^\infty = \bm0$
+\end_inset
+
+:
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Flex Flex:Only
+status collapsed
+
+\begin_layout Standard
+<
+\end_layout
+
+\end_inset
+
+2>
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+For simple shear, 
+\color blue
+
+\begin_inset Formula $u_i^\infty = \gamma x_3 \delta_{i1}$
+\end_inset
+
+:
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula \begin{gather}
+\begin{split}
+\nonumber 
+%&\frac{1}{2\eta}f_j(\bm y) + n_k(\bm y)\int_DT_{ijk}(\bm y'-\bm y)f_i(\bm y')dS_{\bm y'} + \int_D C_{ij}(\bm y',\bm y)f_i(\bm y')dS_{\bm y'} \\
+&\frac{1}{2\eta}f_j(\bm y) + \int_D K_{ij}(\bm y',\bm y)f_i(\bm y') dS_{y'} = U_j + \epsilon_{jk\ell}\Omega_ky_\ell 
+\\
+&\quad\only<2>{\textcolor{blue}{+\frac{\gamma}{2}\left[\delta_{1j}y_3-\delta_{3j}y_1\right]
+ +\gamma\left[\delta_{1j}n_3(\bm y) + \delta_{3j}n_1(\bm y)\right]}}
+%&\quad\only<2>{\textcolor{blue}{- \int_B f_i^\infty(\bm x)\left[ T_{ijk}(\bm x-\bm y)n_k(\bm y) + C_{ij}(\bm x,\bm y)\right]dS_{\bm x}} }\\
+%&\quad\only<2>{\;\textcolor{blue}{ +\mu\int_B u_i^\infty(\bm x){\hat n}_m(\bm x)\left[T^{STR}_{ijkm}(\bm x-\bm y)n_k(\bm y) + C^{STR}_{ijm}(\bm x,\bm y) \right]dS_{\bm x} }}
+ \end{split}
+% \pause
+\end{gather}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+textcolor{blue}{simple shear} ($u_i^
+\backslash
+infty = 
+\backslash
+gamma x_3 
+\backslash
+delta_{i1}$):
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{gather}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+nonumber
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{gather}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Note Note
+status closed
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameTitle
+Application: erosion problem with background shear
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+\align center
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "45line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ Side View
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+movie
+\end_layout
+
+\end_inset
+
+[loop]
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics 
+	filename CloudStart.jpg
+	width 100line%
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+Cloud.mpg
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \quad{}
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "45line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ Front View
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+movie
+\end_layout
+
+\end_inset
+
+[loop]
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics 
+	filename FrontViewStart.jpg
+	width 100line%
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+FrontView.mpg
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+movie{
+\backslash
+includegraphics[width=0.4
+\backslash
+linewidth]{CloudStart.jpg}}{Cloud.mpg}
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% surface ablation rate $
+\backslash
+propto$ shear stress
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+c.f. Ristroph et al. (2012) at high 
+\begin_inset Formula $Re$
+\end_inset
+
+. 
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename High_Re.png
+	width 40line%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Note Note
+status closed
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameTitle
+Next, wall effects
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+Replace free-space singularities with wall-bounded counterparts
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\begin_inset Graphics 
+	filename Stresslet.pdf
+	width 100line%
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \quad{}
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "5line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\begin_inset Formula $\to$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \quad{}
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\begin_inset Graphics 
+	filename SStressletImage.pdf
+	width 100line%
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ Recompute integrals over 
+\begin_inset Formula $B$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+ Beware: different singularity subtraction! 
+\begin_inset Formula $\bm T(\bm x,\bm y) \neq -\bm T(\bm y,\bm x)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Note Note
+status closed
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameTitle
+Wall induces torque on translating bodies
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+\align center
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+movie
+\end_layout
+
+\end_inset
+
+[loop]
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics 
+	filename NSCStart.png
+	width 45line%
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+NCS.mpg
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+;
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+movie
+\end_layout
+
+\end_inset
+
+[loop]
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics 
+	filename ProlateStart.png
+	width 45line%
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+ProlateWallTraction.mpg
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Frame
+The net torques on these bodies are opposite in sign! 
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "40line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\begin_inset Graphics 
+	filename Versus.png
+	width 100line%
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \quad{}
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "50line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\end_layout
+
+\begin_layout Itemize
+sphere wants to roll 
+\end_layout
+
+\begin_layout Itemize
+prolate body wants to glance 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{frame}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+movie{
+\backslash
+includegraphics[width=0.45
+\backslash
+linewidth]{TO4.png}}{OG.mpg} 
+\backslash
+;
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+movie{
+\backslash
+includegraphics[width=0.45
+\backslash
+linewidth]{TO4.png}}{OR.mpg} 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Note Note
+status closed
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameTitle
+Sedimentation of spheroids with wall
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "45line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+3D Oblate Reversing
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+movie
+\end_layout
+
+\end_inset
+
+[loop, poster]
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics 
+	filename TO4.png
+	width 100line%
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+OG.mpg
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Formula $\dot y$
+\end_inset
+
+ changes sign 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+;
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "45line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+3D Oblate Glancing
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+movie
+\end_layout
+
+\end_inset
+
+[loop]
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics 
+	filename TO4.png
+	width 100line%
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+OR.mpg
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Formula $\dot y < 0$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Stokes PDE 
+\begin_inset Formula $\to$
+\end_inset
+
+ three ODEs governing trajectory 
+\end_layout
+
+\begin_layout Itemize
+analytical results predict trajectories 
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\size footnotesize
+Mitchell & Spagnolie, 
+\emph on
+Sedimentation of spheroidal particles near walls in viscous fluids: glancing, reversing, tumbling, and sliding.
+\emph default
+ JFM 2015
+\size default
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Note Note
+status closed
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameTitle
+Wall & Shear together
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "45line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\begin_inset Graphics 
+	filename RCsquare3.pdf
+	width 100line%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "45line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\begin_inset Graphics 
+	filename ShearWallEllipse.png
+	width 100line%
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{frame}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+frametitle{Green's functions for Stokes flow are useful tools} 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+[
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% -
+\backslash
+bm
+\backslash
+nabla p(
+\backslash
+bm x) + 
+\backslash
+mu
+\backslash
+nabla^2
+\backslash
+bm u(
+\backslash
+bm x) = 
+\backslash
+bm f 
+\backslash
+delta(
+\backslash
+bm x) 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+]
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+[
+\backslash
+includegraphics[width = 0.3
+\backslash
+linewidth]{StokesletFree.pdf} 
+\backslash
+]
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Note Note
+status closed
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameTitle
+History: cancelling Green's functions on a plane wall
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\color blue
+Lorentz 1898: General formula for all image flows
+\color inherit
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\color blue
+
+\begin_inset Formula $\star$
+\end_inset
+
+
+\color inherit
+ Blake 1971: singular Green's functions 
+\begin_inset Newline newline
+\end_inset
+
+ Ainley et al. 2008: regularized Green's functions (special blob only)
+\begin_inset Newline newline
+\end_inset
+
+ Cortez et al. 2015: regularized Green's functions (arbitrary blob)
+\begin_inset Newline newline
+\end_inset
+
+ Greengard et al. 2015: singular Green's functions 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space \space{}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Note Note
+status closed
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameTitle
+Lorentz's reflection theorem is simple and powerful
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+Suppose that 
+\begin_inset Formula $\bm 0 = -\nabla p + \mu \nabla^2 \bm u$
+\end_inset
+
+. 
+\begin_inset Newline newline
+\end_inset
+
+ Let 
+\begin_inset Formula $\bm \beta$
+\end_inset
+
+ denote reflection through the plane 
+\begin_inset Formula $\{z = 0\}$
+\end_inset
+
+. Define: 
+\begin_inset Formula \begin{gather}
+\label{eq:uhatdef} \bm v = -\bm\beta \bm u - 2z\bm \nabla u_3+z^2 \nabla^2 \bm u\\
+\label{eq:phatdef} q = p + 2z\partial_{x_3} p - 4\partial_{x_3} u_3\\
+\nonumber \ \\
+\label{eq:ustardef} \bm u^*(x,y,z) = \bm \beta \bm v(x,y,-z)\\
+\label{eq:pstardef} p^*(x,y,z) = q(x,y,-z)
+\end{gather}
+\end_inset
+
+Then 
+\begin_inset Formula $\bm u + \bm u^* = \bm 0$
+\end_inset
+
+ on 
+\begin_inset Formula $\{z = 0\}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bm 0 = -\bm\nabla(p+p^*) + \mu\nabla^2(\bm u+\bm u^*)$
+\end_inset
+
+. 
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Note Note
+status closed
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameTitle
+The LRT Stresslet image is concise
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+\align center
+
+\begin_inset Formula \(\displaystyle T_{ijk}(\bm x,\bm y) = \frac{\hat X_i \hat X_j\hat X_k}{|\hat X|^5}\)
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Flex Flex:Alternative
+status collapsed
+
+\begin_layout Standard
+<
+\end_layout
+
+\end_inset
+
+1>
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics 
+	filename Xhatdef.pdf
+	width 30line%
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics 
+	filename XhatXdef.pdf
+	width 30line%
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics 
+	filename Stresslet.pdf
+	width 30line%
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Pause
+
+\begin_inset Graphics 
+	filename SStressletImage.pdf
+	width 30line%
+
+\end_inset
+
+ 
+\begin_inset VSpace -0.2in
+\end_inset
+
+ 
+\size small
+
+\begin_inset Formula \begin{align*}
+&\hspace{-0.35in} T^*_{ijk}(\bm x,\bm y) = -\frac{\hat X_iX_jX_k}{|\bm X|^5} - 2x_3\frac{\beta_{ij}y_3X_k+\beta_{ik}y_3X_j-\delta_{jk}x_3\beta_{im}X_m}{|\bm  X|^5} + 10\frac{x_3y_3X_jX_k\beta_{im}X_m}{|\bm  X|^7}
+\end{align*}
+\end_inset
+
+
+\size default
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{frame}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+frametitle{Future work}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{itemize}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+item Shear flow past a bump on a wall
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% % 
+\backslash
+begin{minipage}{0.4
+\backslash
+linewidth}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% % 
+\backslash
+includegraphics[width = 
+\backslash
+linewidth]{RCsquare3.pdf} 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% % 
+\backslash
+end{minipage}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% % 
+\backslash
+quad$
+\backslash
+to$
+\backslash
+quad
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+begin{minipage}{0.4
+\backslash
+linewidth}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+includegraphics[width = 
+\backslash
+linewidth]{RCsquare4.pdf} 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{minipage}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+item Forced background flows, $-
+\backslash
+bm
+\backslash
+nabla p + 
+\backslash
+mu
+\backslash
+nabla^2
+\backslash
+bm u 
+\backslash
+neq 0$
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+item Several bodies
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+item $
+\backslash
+star$ Rigid-body restriction? $
+\backslash
+star$
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%  
+\backslash
+end{itemize}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+% 
+\backslash
+end{frame}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Note Note
+status closed
+
+\begin_layout Standard
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout FrameTitle
+Q & A
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\begin_inset Graphics 
+	filename NCSEnd.png
+	width 100line%
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \quad{}
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\begin_inset Graphics 
+	filename CloudEnd.jpg
+	width 100line%
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \quad{}
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\begin_inset Graphics 
+	filename ShearWallEllipse.png
+	width 100line%
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\begin_inset Graphics 
+	filename RCsquare2.pdf
+	width 100line%
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \quad{}
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\begin_inset Graphics 
+	filename RCsquare1.pdf
+	width 100line%
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \quad{}
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "30line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+
+\begin_layout Plain Layout
+ 
+\begin_inset Graphics 
+	filename RCsquare3.pdf
+	width 100line%
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

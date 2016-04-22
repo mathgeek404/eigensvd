@@ -73,6 +73,10 @@
 
 \begin_body
 
+\begin_layout Standard
+Notes: Go over basic things
+\end_layout
+
 \begin_layout Section*
 Motivation
 \end_layout
@@ -83,6 +87,10 @@ Image recognition systems surpassing humans
 
 \begin_layout Section*
 The Problem 
+\end_layout
+
+\begin_layout Standard
+Break it down into linear algebra
 \end_layout
 
 \begin_layout Standard

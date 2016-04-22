@@ -73,6 +73,10 @@
 
 \begin_body
 
+\begin_layout Standard
+Notes: Go over basic things
+\end_layout
+
 \begin_layout Section*
 Motivation
 \end_layout
@@ -236,6 +240,11 @@ Fisherfaces
 
 \begin_layout Standard
 An attempt to integrate classification data into the process
+\end_layout
+
+\begin_layout Standard
+Goal: Find a subspace that groups common groups of images together while
+ separating different groups as much as possible.
 \end_layout
 
 \begin_layout Subsection*
