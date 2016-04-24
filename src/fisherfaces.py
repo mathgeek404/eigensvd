@@ -20,17 +20,19 @@ class FFRec(object):
 		labels = set(classVec)
 		c = len(labels)
 
-		# Projection onto c-dim subspace
+
+		# Projection onto N-c-dim subspace
 		W_pca = u[:,0:N-c].T
 		P = np.dot(W_pca,(matrix.T-mu).T)
+
 
 		S_b = np.zeros((P.shape[0],P.shape[0]))
 		mean  = np.mean(P,axis=1)
 		for clas in labels:
 			indices = [i for i, x in enumerate(classVec) if x == clas]
-			N = len(indices)
+			nn = len(indices)
 			mean_i = np.mean(P[:,indices],axis=1)
-			S_b = S_b + N*np.dot((mean_i-mean),(mean_i-mean).T)
+			S_b = S_b + nn*np.dot((mean_i-mean),(mean_i-mean).T)
 
 
 		S_w = np.zeros((P.shape[0],P.shape[0]))
@@ -48,13 +50,15 @@ class FFRec(object):
 		eigenvalues = np.array(eigenvalues[0:c].real , dtype=np.float32, copy=True )
 		eigenvectors = np.array(eigenvectors[0:,0:c].real , dtype =np.float32, copy = True)
 
+
 		self.Wlda = np.dot(eigenvectors.T, W_pca)
 		self.mu = mu
 		self.matrix = matrix
-		self.numimg = numimg
+		self.numimg = N
 		self.imgsize = imgsize
 
-		self.proj = [self.project(matrix[:,i]) for i in range(0,numimg)]
+
+		self.proj = [self.project(matrix[:,i]) for i in range(0,N)]
 		self.projClass = classVec
 
 
@@ -68,6 +72,7 @@ class FFRec(object):
 		Q = self.project(X)
 		for i in range(0,len(self.proj)):
 			dist = np.linalg.norm(self.proj[i] - Q)
+			#print dist
 			if dist < minDist :
 				minDist = dist
 				minClass = self.projClass[i]
