@@ -9,33 +9,14 @@ from scipy.linalg import svd
 
 class FFRec(object):
 
-	def __init__(self, datadir ="data/yalefaces/"):
-		imgsize=(0,0)
-		numimg = 0
-		#datadir = "data/yalefaces/"
-		imgList = os.listdir(datadir)
-		numArr = []
-		classVec = []
-		fileRegex = re.compile("subject.*")
-		for fname in imgList:
-			if (fileRegex.match(fname)):
-				classnum = int(filter(str.isdigit, fname))
-				classVec.append(classnum)
-				img = Image.open(datadir+fname).convert('L')
-				arr = np.array(img, 'uint8').reshape(img.size[0]*img.size[1])
-				numArr.append(arr)
-				imgsize  = img.size
-				numimg += 1
-
-		# Join into matrix, creating a (num of dim) x (num of data pts) matrix
-		matrix = np.vstack(numArr).T
+	def __init__(self, matrix, classVec, imgsize):
 
 		#PCA/Eigendecomp
 		mu = matrix.mean(axis=1)
 		u,s,v = svd((matrix.T-mu).T, full_matrices=0)
 
 		#Num of Classes
-		N = len(numArr)
+		N = len(classVec)
 		labels = set(classVec)
 		c = len(labels)
 
@@ -76,10 +57,6 @@ class FFRec(object):
 		self.proj = [self.project(matrix[:,i]) for i in range(0,numimg)]
 		self.projClass = classVec
 
-		#Eigenface construction
-		#for i in range(0,k):
-		#    img = Image.fromarray((u[:,i]*s[i]).reshape(imgsize[1],imgsize[0]))
-		#    img.save('result/eigenface%.4i.gif'%i)
 
 	def project(self, X):
 		return np.dot(self.Wlda, X-self.mu)
