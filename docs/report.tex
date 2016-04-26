@@ -1,0 +1,126 @@
+%% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{amsmath}
+\usepackage{babel}
+\begin{document}
+Notes: Go over basic things
+
+
+\section*{Motivation}
+
+Image recognition systems surpassing humans
+
+
+\section*{The Problem }
+
+Break it down into linear algebra
+
+Consider an N by M pixel image. We can unwrap this data matrix into
+a vector in an NM dimensional space
+
+Each component in this NM space isn't very useful, just indicative
+of a single pixel value.
+
+However, only a subset of points in this NM dimensional space correspond
+to structured images, potentially with some common uniform pattern
+
+Classification of these images which we would like to predict (e.g.
+person, object)
+
+
+\section*{PCA For EigenFaces}
+
+Goal: Find vectors which can best account for the variation of these
+images (e.g. faces)
+
+
+\subsection*{Covariance Matrix}
+
+$\mu=\frac{1}{n}\sum_{i=1}^{n}X_{i}$
+
+$cov(X_{i},X_{j})=E[(X_{i}-\mu_{i})(X_{i}-\mu_{j})]$
+
+$X=[X_{i}-mu]_{i},i\in1,...,n$
+
+$X=WDW^{T}$
+
+$\hat{X}=USV^{T}$
+
+$XX^{T}=USV^{T}(USV^{T})^{T}=USV^{T}VS^{T}U^{T}=USIS^{T}U^{T}=USSU^{T}=US^{2}U^{T}$
+
+So then $U=W$ and $S^{2}=D$. Thus the SVD manages to calculate the
+eigenvectors (and eigenvalues) without having to calculate the covariance
+matrix itself. 
+
+Hence, we can use the k largest singular values to indicate the k
+principle components from $U$
+
+
+\subsection*{Eigenfaces Methodology}
+
+Here, we assume X is the d by n data matrix of sample points, where
+d is the number of features/variables and n is the number of samples.
+
+1. Compute the mean of the data points: $\mu=\frac{1}{n}\sum_{i=1}^{n}x_{i}$
+
+2. Center the matrix X by subtracting mu from each column: $X=[X_{i}-mu]_{i},i\in1,...,n$
+
+3. Take the SVD of X:
+
+$USV^{T}=X$
+
+4. Consider the k column vectors of U, say $\{U_{i_{1}}U_{i_{2}}...U_{i_{k}}\}$
+for some $i_{1},...,i_{k}$, corresponding to the k largest singular
+values in S.
+
+5. Construct a projection matrix using the column vectors of U from
+(4), transpose:
+
+$W_{PCA}=\begin{bmatrix}U_{i_{1}} & U_{i_{2}} & ... & U_{i_{k}}\end{bmatrix}^{T}$
+
+
+\subsection*{Projector and Recognition}
+
+
+\subsection*{Limitations? Issues}
+
+
+\subsection*{Fisherfaces}
+
+An attempt to integrate classification data into the process
+
+Goal: Find a subspace that groups common groups of images together
+while separating different groups as much as possible.
+
+
+\subsection*{LDA methodology}
+
+Suppose we are given a set of samples $S=\{(x_{1},c_{1}),...,(x_{n},c_{n})\}$,
+with each $x_{i}$ with some classification $c_{i}\in\{1,...,c\}$.
+Define $ind(S,r):=\{i|i\in\{1,..,n\},(x_{i},r)\in S\}$ (that is,
+the set of indices for samples with the given classification).
+
+Calculate $S_{B}=\sum_{i=1}^{c}N_{i}(\mu_{i}-\mu)(\mu_{i}-\mu)^{T}$
+
+Calculate $S_{B}=\sum_{i=1}^{c}\sum_{i\in ind(S,i)}N_{i}(\mu_{i}-\mu)(\mu_{i}-\mu)^{T}$
+
+Want to find the projection matrix that maximizes:
+
+$W_{opt}=argmax_{W}\frac{|W^{T}S_{B}W|}{|W^{T}S_{W}W|}$
+
+Project sample image vector $x$ onto this subspace via $\hat{y}=W^{T}(x-\mu)$. 
+
+Generate $W_{PCA}$ using PCA on X, keeping the $N-c$ principle components.
+
+
+\subsection*{Limitations/Issue}
+
+
+\subsection*{Bird vs Llama}
+\end{document}

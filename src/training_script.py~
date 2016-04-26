@@ -24,6 +24,7 @@ for fname in imgList:
         classVec.append(classnum)
         img = Image.open(datadir+fname).convert('L')
         arr = np.array(img, 'uint8').reshape(img.size[0]*img.size[1])
+        print arr
         numArr.append(arr)
         imgsize  = img.size
         numimg += 1
@@ -34,7 +35,6 @@ matrix = np.vstack(numArr).T
 eig = eigRec(matrix, classVec, imgsize)
 fish = FFRec(matrix, classVec, imgsize)
 #TODO: Eigenface reconstruction
-#eig.eigenReconstruct()
 
 imgsize=(0,0)
 numimg = 0

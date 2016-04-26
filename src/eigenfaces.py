@@ -12,7 +12,7 @@ class eigRec(object):
        #PCA/Eigendecomp
         mu = matrix.mean(axis=1)
         u,s,v = svd((matrix.T-mu).T, full_matrices=0)
-        
+
         #Choose the k largest eigenvalues, vectors
         k=len(classVec)
         s[k:] = 0.0
@@ -23,17 +23,20 @@ class eigRec(object):
         self.numimg = len(classVec)
         self.imgsize = imgsize
         self.k = k
+        self.s = s
 
         self.proj = [self.project(matrix[:,i]) for i in range(0,self.numimg)]
         self.projClass = classVec
 
-    def eigenReconstruct():
+    def eigenReconstruct(self):
         #Eigenface construction
+        img = Image.fromarray((self.mu).reshape(self.imgsize[1],self.imgsize[0]))
+        img.save('result/meanface.gif')
         for i in range(0,self.k):
-            img = Image.fromarray((u[:,i]*s[i]).reshape(imgsize[1],imgsize[0]))
+            img = Image.fromarray((self.Wpca[i,:].T*self.s[i] + self.mu).reshape(self.imgsize[1],self.imgsize[0]))
             img.save('result/eigenface%.4i.gif'%i)
 
-    def reconstructImages():
+    def reconstructImages(self):
         #Original image reconstruction
         for kk in range(0,self.numimg):
             iv = np.dot(u,np.dot(np.diag(s),v[:,kk]))

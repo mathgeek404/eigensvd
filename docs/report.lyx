@@ -222,12 +222,40 @@ Here, we assume X is the d by n data matrix of sample points, where d is
 
 \begin_layout Standard
 3.
- Take the SVD of X
+ Take the SVD of X:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $USV^{T}=X$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 4.
- 
+ Consider the k column vectors of U, say 
+\begin_inset Formula $\{U_{i_{1}}U_{i_{2}}...U_{i_{k}}\}$
+\end_inset
+
+ for some 
+\begin_inset Formula $i_{1},...,i_{k}$
+\end_inset
+
+, corresponding to the k largest singular values in S.
+\end_layout
+
+\begin_layout Standard
+5.
+ Construct a projection matrix using the column vectors of U from (4), transpose
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $W_{PCA}=\begin{bmatrix}U_{i_{1}} & U_{i_{2}} & ... & U_{i_{k}}\end{bmatrix}^{T}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection*
@@ -314,6 +342,41 @@ Project sample image vector
 
 .
  
+\end_layout
+
+\begin_layout Standard
+Generate 
+\begin_inset Formula $W_{PCA}$
+\end_inset
+
+ using PCA on X, keeping the 
+\begin_inset Formula $N-c$
+\end_inset
+
+ principle components.
+\end_layout
+
+\begin_layout Subsection*
+Limitations/Issue
+\end_layout
+
+\begin_layout Subsection*
+Bird vs Llama
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\begin{bmatrix}1 & 5 & 9\\
+-2 & 4 & 0
+\end{bmatrix}\rightarrow\begin{bmatrix}1\\
+-2\\
+5\\
+4\\
+9\\
+0
+\end{bmatrix}$
+\end_inset
+
+
 \end_layout
 
 \end_body
