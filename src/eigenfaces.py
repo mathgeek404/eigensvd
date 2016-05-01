@@ -14,7 +14,8 @@ class eigRec(object):
         u,s,v = svd((matrix.T-mu).T, full_matrices=0)
 
         #Choose the k largest eigenvalues, vectors
-        k=len(classVec)
+        #k=len(classVec)
+        k = 5
         s[k:] = 0.0
 
         self.Wpca = u[:,0:k].T

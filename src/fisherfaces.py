@@ -56,6 +56,7 @@ class FFRec(object):
 		self.matrix = matrix
 		self.numimg = N
 		self.imgsize = imgsize
+		self.s = eigenvalues
 
 
 		self.proj = [self.project(matrix[:,i]) for i in range(0,N)]
@@ -87,5 +88,14 @@ class FFRec(object):
 			iv = self.matrix[:,kk]
 			iv = self.project(iv)
 			iv = self.reconstruct(iv)
+			img = Image.fromarray(self.matrix[:,kk].T.reshape(self.imgsize[1],self.imgsize[0]))
+			img.save('result/lda_recon%.4iORIG.gif'%kk)
 			img = Image.fromarray(iv.T.reshape(self.imgsize[1],self.imgsize[0]))
 			img.save('result/lda_recon%.4i.gif'%kk)
+	def eigenReconstruct(self):
+		#Eigenface construction
+		img = Image.fromarray((self.mu).reshape(self.imgsize[1],self.imgsize[0]))
+		img.save('result/fishermeanface.gif')
+		for i in range(0,self.Wlda.shape[0]):
+			img = Image.fromarray((self.Wlda[i,:].T*self.s[i] + self.mu).reshape(self.imgsize[1],self.imgsize[0]))
+			img.save('result/fisherface%.4i.gif'%i)

@@ -31,8 +31,28 @@ for fname in imgList:
 # Join into matrix, creating a (num of dim) x (num of data pts) matrix
 matrix = np.vstack(numArr).T
 
-eig = eigRec(matrix, classVec, imgsize)
+eigAcc = 0
+fishAcc = 0
+for i in range(0,0):
+    trains = range(0,i)+range(i+1,numimg)
+    eig = eigRec(matrix[:,trains], [classVec[tmp] for tmp in trains], imgsize)
+    #fish = FFRec(matrix[:,trains], [classVec[tmp] for tmp in trains], imgsize)
+    if (eig.predict(numArr[i].T) == classVec[i]):
+        eigAcc = eigAcc + 1
+    #if (fish.predict(numArr[i].T) == classVec[i]):
+    #    fishAcc = fishAcc + 1
+
+print numimg
+print eigAcc
+print fishAcc
+
+
+eigAcc = 0
+fishAcc = 0
+
 fish = FFRec(matrix, classVec, imgsize)
+fish.eigenReconstruct()
+fish.reconstructImages()
 #TODO: Eigenface reconstruction
 #eig.eigenReconstruct()
 
@@ -55,17 +75,17 @@ for fname in imgList:
 
 eigAcc = 0
 fishAcc = 0
-for i in range(0,numimg):
-    if (eig.predict(numArr[i].T) == classVec[i]):
-        eigAcc = eigAcc + 1
-    if (fish.predict(numArr[i].T) == classVec[i]):
-        fishAcc = fishAcc + 1
+#for i in range(0,numimg):
+#    if (eig.predict(numArr[i].T) == classVec[i]):
+#        eigAcc = eigAcc + 1
+#    if (fish.predict(numArr[i].T) == classVec[i]):
+#        fishAcc = fishAcc + 1
 
 
-print numimg
-print eigAcc
-print fishAcc
-
+#print numimg
+#print eigAcc
+#print fishAcc
+'''
 print "Caltech data"
 # Caltech data
 imgsize=(0,0)
@@ -138,3 +158,4 @@ for i in range(0,numimg):
 print numimg
 print eigAcc
 print fishAcc
+'''
